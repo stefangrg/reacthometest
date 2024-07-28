@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import Slideshow from "./Slideshow";
 import { useState } from "react";
 import { Input } from "./Input/Input";
 
 export const SlideshowWrapper: React.FC = () => {
 
+    const inputRef = useRef<HTMLInputElement>(null);
     const [numUsers, setNumUsers] = useState<number>(5);
     const [running, setRunning] = useState<boolean>(true);
     const [validationError, setValidationError] = useState<string>("");
@@ -18,19 +19,23 @@ export const SlideshowWrapper: React.FC = () => {
     }
 
     const handleInputChange = (e: any) => {
-        const inputValue = e.target.value;
-        if (!parseInt(inputValue)) {
-            setValidationError('The value must be a number');
-            return;
+
+        if (inputRef.current) {
+            const inputValidated = parseInt(inputRef.current.value);
+            if (!inputValidated) {
+                setValidationError('The value must be a number');
+                return;
+            }
+            setValidationError('');
+            setNumUsers(inputValidated);
         }
-        setValidationError('');
-        setNumUsers(inputValue);
 
     }
 
     return (
         <div>
-            <Input onChange={handleInputChange} value={numUsers}></Input>
+            <Input ref={inputRef} defaultValue={numUsers.toString()} placeholder={numUsers.toString()}></Input>
+            <button onClick={handleInputChange}>Change</button>
             {validationError && <p>{validationError}</p>}
             <Slideshow numUsers={numUsers} running={running}></Slideshow>
             <button onClick={handleStart}>Start</button>

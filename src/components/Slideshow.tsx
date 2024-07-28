@@ -9,10 +9,7 @@ const Slideshow: React.FC<{ numUsers: number, running: boolean }> = ({ numUsers,
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        if (numUsers > 0) {
-            dispatch(fetchUsers(numUsers))
-        }
-
+        dispatch(fetchUsers(numUsers))
     }, [dispatch, numUsers]);
 
     useEffect(() => {

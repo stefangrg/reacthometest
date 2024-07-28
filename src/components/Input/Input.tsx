@@ -4,7 +4,7 @@ import { StyledInput } from './styles';
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
-    return <StyledInput ref={ref} {...props} type='number' />;
+    return <StyledInput ref={ref} {...props} type='text' />;
 });
 
 Input.displayName = 'Input';
