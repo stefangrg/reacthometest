@@ -1,12 +1,12 @@
 import React from 'react';
 import { Input } from "../components/Input/Input";
 import { PageWrapper } from "./styles";
+import { SlideshowWrapper } from '../components/SlideshowWrapper';
 
 export const Home = () => {
   return (
     <PageWrapper>
-      <Input />
-      {/* Slideshow should be rendered here */}
+      <SlideshowWrapper />
     </PageWrapper>
   );
 };

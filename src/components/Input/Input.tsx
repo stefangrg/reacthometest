@@ -1,7 +1,10 @@
-import React from 'react';
-import { FC } from "react";
-import { StyledInput } from "./styles";
+import React, { forwardRef } from 'react';
+import { StyledInput } from './styles';
 
-interface Props { }
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> { }
 
-export const Input: FC<Props> = () => <StyledInput />;
+export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
+    return <StyledInput ref={ref} {...props} type='number' />;
+});
+
+Input.displayName = 'Input';

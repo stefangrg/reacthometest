@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledInput = styled.input`
-  width: 50%;
+  width: 50px;
   padding: 10px;
   font-size: ${({ theme }) => theme.typography.fontSizes.medium};
   border: 1px solid ${({ theme }) => theme.colors.primary};
