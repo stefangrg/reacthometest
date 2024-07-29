@@ -2,8 +2,8 @@ import { Theme } from "./types";
 
 export const theme: Theme = {
   colors: {
-    primary: "#6d6d6d",
-    secondary: "#2ecc71",
+    primary: "#1e88e3",
+    secondary: "#c52828",
     accent: "#e74c3c",
     background: "#ecf0f1",
     text: "#34495e",

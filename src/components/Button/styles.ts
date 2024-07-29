@@ -11,9 +11,9 @@ const getButtonStyles = (theme: Theme, variant?: ButtonVariants) => {
         `;
     case "secondary":
       return `
-          background: transparent;
-          color: ${theme.colors.primary};
-          border: 1px solid ${theme.colors.primary};
+          background: ${theme.colors.secondary};
+          color: ${theme.colors.white};
+          border: 1px solid ${theme.colors.secondary};
         `;
     default:
       return "";
@@ -27,6 +27,7 @@ export const StyledButton = styled.button<{ variant?: ButtonVariants }>`
   border-radius: 5px;
   cursor: pointer;
   min-width: 120px;
+  margin: 0 5px;
 
   &:hover {
     opacity: 0.8;
